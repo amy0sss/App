@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.MVVM.Views.Login"
+             Title="Login"
+             BackgroundColor="White">
+
+    <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+
+        <!-- Illustration -->
+        <Image Source="illustration.png" HeightRequest="160" HorizontalOptions="Center"/>
+
+        <!-- Title & Subtitle -->
+        <Label Text="Welcome Back!" FontSize="26" FontAttributes="Bold" TextColor="#0E2539" HorizontalOptions="Center"/>
+        <Label Text="Sign in to continue" FontSize="14" TextColor="Gray" HorizontalOptions="Center"/>
+
+        <!-- Input Fields -->
+        <VerticalStackLayout Spacing="12">
+            <Frame CornerRadius="10" Padding="8" BackgroundColor="White" HasShadow="True">
+                <HorizontalStackLayout Spacing="10">
+                    <Image Source="user_icon.png" WidthRequest="20" HeightRequest="20"/>
+                    <Entry Placeholder="Username" WidthRequest="250"/>
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Frame CornerRadius="10" Padding="8" BackgroundColor="White" HasShadow="True">
+                <HorizontalStackLayout Spacing="10">
+                    <Image Source="lock_icon.png" WidthRequest="20" HeightRequest="20"/>
+                    <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" WidthRequest="230"/>
+                    <ImageButton x:Name="TogglePasswordButton" Source="eye.png" BackgroundColor="Transparent"
+                                 Command="{Binding TogglePasswordVisibility}" WidthRequest="25"/>
+                </HorizontalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+
+        <!-- Remember Me -->
+        <HorizontalStackLayout Spacing="5">
+            <Switch />
+            <Label Text="Remember me" VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <!-- Sign-in Button -->
+        <Button Text="Sign In" BackgroundColor="#0E2539" TextColor="White" CornerRadius="10" HeightRequest="50"/>
+
+        <!-- Sign-up Link -->
+        <Label Text="Don't have an account? Sign Up" TextColor="#0E2539" HorizontalOptions="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding NavigateToSignUp}" />
+            </Label.GestureRecognizers>
+        </Label>
+
+    </VerticalStackLayout>
+
+</ContentPage>
