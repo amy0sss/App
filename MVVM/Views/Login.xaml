@@ -3,52 +3,104 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App.MVVM.Views.Login"
              Title="Login"
-             BackgroundColor="White">
+             BackgroundColor="#F8F9FA">
 
-    <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+    <ContentPage.Resources>
+        <Style x:Key="InputFrame" TargetType="Frame">
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="Padding" Value="15,10"/>
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="HasShadow" Value="True"/>
+            <Setter Property="BorderColor" Value="#E0E0E0"/>
+        </Style>
+        <Style x:Key="InputEntry" TargetType="Entry">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="#333333"/>
+            <Setter Property="PlaceholderColor" Value="#AAAAAA"/>
+        </Style>
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#3B82F6"/>
+            <Setter Property="TextColor" Value="#FFFFFF"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style x:Key="SecondaryButton" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="TextColor" Value="#3B82F6"/>
+            <Setter Property="BorderColor" Value="#3B82F6"/>
+            <Setter Property="BorderWidth" Value="1"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+    </ContentPage.Resources>
 
-        <!-- Illustration -->
-        <Image Source="illustration.png" HeightRequest="160" HorizontalOptions="Center"/>
+    <ScrollView>
+        <VerticalStackLayout Padding="30,50" Spacing="25" VerticalOptions="Center">
 
-        <!-- Title & Subtitle -->
-        <Label Text="Welcome Back!" FontSize="26" FontAttributes="Bold" TextColor="#0E2539" HorizontalOptions="Center"/>
-        <Label Text="Sign in to continue" FontSize="14" TextColor="Gray" HorizontalOptions="Center"/>
+            <!-- Illustration -->
+            <Image Source="illustration.png" HeightRequest="150" HorizontalOptions="Center"/>
 
-        <!-- Input Fields -->
-        <VerticalStackLayout Spacing="12">
-            <Frame CornerRadius="10" Padding="8" BackgroundColor="White" HasShadow="True">
-                <HorizontalStackLayout Spacing="10">
-                    <Image Source="user_icon.png" WidthRequest="20" HeightRequest="20"/>
-                    <Entry Placeholder="Username" WidthRequest="250"/>
-                </HorizontalStackLayout>
-            </Frame>
+            <!-- Title & Subtitle -->
+            <StackLayout Spacing="5">
+                <Label Text="Welcome Back!" FontSize="28" FontAttributes="Bold" TextColor="#1E3A8A" HorizontalOptions="Center"/>
+                <Label Text="Sign in to continue" FontSize="16" TextColor="#64748B" HorizontalOptions="Center"/>
+            </StackLayout>
 
-            <Frame CornerRadius="10" Padding="8" BackgroundColor="White" HasShadow="True">
-                <HorizontalStackLayout Spacing="10">
-                    <Image Source="lock_icon.png" WidthRequest="20" HeightRequest="20"/>
-                    <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" WidthRequest="230"/>
-                    <ImageButton x:Name="TogglePasswordButton" Source="eye.png" BackgroundColor="Transparent"
-                                 Command="{Binding TogglePasswordVisibility}" WidthRequest="25"/>
-                </HorizontalStackLayout>
-            </Frame>
+            <!-- Input Fields -->
+            <VerticalStackLayout Spacing="15">
+                <Frame Style="{StaticResource InputFrame}">
+                    <HorizontalStackLayout Spacing="15">
+                        <Image Source="user_icon.png" WidthRequest="24" HeightRequest="24"/>
+                        <Entry Placeholder="Username" Style="{StaticResource InputEntry}" WidthRequest="265"/>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Frame Style="{StaticResource InputFrame}">
+                    <HorizontalStackLayout Spacing="15">
+                        <Image Source="lock_icon.png" WidthRequest="24" HeightRequest="24"/>
+                        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" Style="{StaticResource InputEntry}" WidthRequest="265"/>
+                        <ImageButton x:Name="TogglePasswordButton" Source="eye.png"
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding TogglePasswordVisibility}" WidthRequest="24" HeightRequest="24"/>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <!-- Forgot Password -->
+                <Label Text="Forgot Password?" TextColor="#3B82F6" HorizontalOptions="EndAndExpand" FontSize="14">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToForgotPassword}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </VerticalStackLayout>
+
+            <!-- Remember Me -->
+            <HorizontalStackLayout Spacing="10">
+                <CheckBox Color="#3B82F6"/>
+                <Label Text="Remember me" VerticalOptions="Center" FontSize="14"/>
+            </HorizontalStackLayout>
+
+            <!-- Sign-in Button -->
+            <Button Text="Sign In"
+                    Style="{StaticResource PrimaryButton}"
+                    Command="{Binding SignInCommand}"/>
+
+            <!-- Sign-up Link -->
+            <Label HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Don't have an account? " TextColor="#64748B"/>
+                        <Span Text="Sign Up" TextColor="#3B82F6" FontAttributes="Bold">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding NavigateToSignUp}" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
         </VerticalStackLayout>
-
-        <!-- Remember Me -->
-        <HorizontalStackLayout Spacing="5">
-            <Switch />
-            <Label Text="Remember me" VerticalOptions="Center"/>
-        </HorizontalStackLayout>
-
-        <!-- Sign-in Button -->
-        <Button Text="Sign In" BackgroundColor="#0E2539" TextColor="White" CornerRadius="10" HeightRequest="50"/>
-
-        <!-- Sign-up Link -->
-        <Label Text="Don't have an account? Sign Up" TextColor="#0E2539" HorizontalOptions="Center">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding NavigateToSignUp}" />
-            </Label.GestureRecognizers>
-        </Label>
-
-    </VerticalStackLayout>
-
+    </ScrollView>
 </ContentPage>

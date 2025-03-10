@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.MVVM.Views.Registration"
+             Title="Register"
+             BackgroundColor="#F4F4F4">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20">
+
+            <!-- Title -->
+            <Label Text="Create Account"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="#2C3E50"
+                   HorizontalOptions="Center"/>
+            <Label Text="Join our community!"
+                   FontSize="16"
+                   TextColor="#777"
+                   HorizontalOptions="Center"/>
+
+            <!-- Input Fields -->
+            <Frame CornerRadius="12" Padding="10" BackgroundColor="White" HasShadow="True">
+                <Entry Placeholder="Full Name" FontSize="16"/>
+            </Frame>
+
+            <Frame CornerRadius="12" Padding="10" BackgroundColor="White" HasShadow="True">
+                <Entry Placeholder="Email Address" Keyboard="Email" FontSize="16"/>
+            </Frame>
+
+            <Frame CornerRadius="12" Padding="10" BackgroundColor="White" HasShadow="True">
+                <Entry Placeholder="Password" IsPassword="True" FontSize="16"/>
+            </Frame>
+
+            <Frame CornerRadius="12" Padding="10" BackgroundColor="White" HasShadow="True">
+                <Entry Placeholder="Confirm Password" IsPassword="True" FontSize="16"/>
+            </Frame>
+
+            <!-- Terms and Conditions -->
+            <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
+                <CheckBox />
+                <Label Text="I agree to the Terms and Conditions"
+                       VerticalOptions="Center"
+                       TextColor="#34495E"/>
+            </HorizontalStackLayout>
+
+            <!-- Sign-up Button -->
+            <Button Text="Sign Up"
+                    BackgroundColor="#2C3E50"
+                    TextColor="#FFFFFF"
+                    CornerRadius="12"
+                    HeightRequest="50"/>
+
+            <!-- Login Link -->
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Already have an account?"
+                       TextColor="#777"/>
+                <Label Text=" Log In"
+                       TextColor="#2C3E50"
+                       FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToLogin}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
