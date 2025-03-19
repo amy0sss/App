@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Resources",
+    "\\Resources\\Images"
   ],
   "SelectedNode": "\\App.sln",
   "PreviewInSolutionExplorer": false

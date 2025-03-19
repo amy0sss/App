@@ -1,4 +1,16 @@
-﻿obj\Debug\net8.0-android\resizetizer\r\drawable\illustration.jpg
+﻿obj\Debug\net8.0-android\resizetizer\r\drawable\bg1.jpg
+obj\Debug\net8.0-android\resizetizer\r\drawable\bg2.jpg
+obj\Debug\net8.0-android\resizetizer\r\drawable\bg3.jpg
+obj\Debug\net8.0-android\resizetizer\r\drawable\eye.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\eye_closed.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\fb.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\google.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\illustration.jpg
+obj\Debug\net8.0-android\resizetizer\r\drawable\instagram.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\login.jpg
+obj\Debug\net8.0-android\resizetizer\r\drawable\padlock.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\user.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\welcome.jpg
 obj\Debug\net8.0-android\resizetizer\r\drawable-hdpi\dotnet_bot.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-mdpi\dotnet_bot.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-xhdpi\dotnet_bot.png
