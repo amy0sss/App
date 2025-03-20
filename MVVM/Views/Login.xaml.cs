@@ -6,4 +6,10 @@ public partial class Login : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Registration());
+    }
+
 }

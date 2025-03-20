@@ -2,69 +2,175 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App.MVVM.Views.Registration"
-             Title="Register"
-             BackgroundColor="#F4F4F4">
+             Title="Registration"
+             BackgroundImageSource="bg6.jpg"
+             NavigationPage.HasNavigationBar="False">
+
+    <!--#region Setters -->
+    <ContentPage.Resources>
+        <!-- Setter for local use -->
+        <Style x:Key="InputFrame" TargetType="Frame">
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="Padding" Value="15,10"/>
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="HasShadow" Value="True"/>
+            <Setter Property="BorderColor" Value="#E0E0E0"/>
+        </Style>
+        <Style x:Key="InputEntry" TargetType="Entry">
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="TextColor" Value="#333333"/>
+            <Setter Property="PlaceholderColor" Value="#fafafa"/>
+        </Style>
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#1A2151"/>
+            <Setter Property="TextColor" Value="#FFFFFF"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="HeightRequest" Value="60"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="CharacterSpacing" Value="2"/>
+            <Setter Property="FontSize" Value="28"/>
+        </Style>
+        <Style x:Key="SecondaryButton" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="TextColor" Value="#3B82F6"/>
+            <Setter Property="BorderColor" Value="#3B82F6"/>
+            <Setter Property="BorderWidth" Value="1"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+    </ContentPage.Resources>
+    <!--#endregion-->
 
     <ScrollView>
-        <VerticalStackLayout Padding="30" Spacing="20">
+        <VerticalStackLayout Spacing="25">
 
-            <!-- Title -->
-            <Label Text="Create Account"
-                   FontSize="28"
-                   FontAttributes="Bold"
-                   TextColor="#2C3E50"
-                   HorizontalOptions="Center"/>
-            <Label Text="Join our community!"
-                   FontSize="16"
-                   TextColor="#777"
-                   HorizontalOptions="Center"/>
+            <Frame CornerRadius="60" HasShadow="True" BorderColor="Transparent" Margin="0,-50,0,0">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#0C3762" Offset="0.0" />
+                        <GradientStop Color="#CC3060A0" Offset="0.5" />
+                        <GradientStop Color="#A0E0FF" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Frame.Background>
 
-            <!-- Input Fields -->
-            <Frame CornerRadius="12" Padding="10" BackgroundColor="White" HasShadow="True">
-                <Entry Placeholder="Full Name" FontSize="16"/>
+                <VerticalStackLayout Margin="0,50,0,200" Spacing="15">
+                    <Frame CornerRadius="30" Padding="0" WidthRequest="400" HasShadow="True" BorderColor="Transparent">
+                        <Image Source="login.png" HeightRequest="240" Aspect="AspectFill"/>
+                    </Frame>
+
+                    <StackLayout Spacing="3">
+
+                        <Label Text="AJL ELECTRONICS!" 
+                               FontSize="36" FontAttributes="Bold" CharacterSpacing="3"
+                               TextColor="DeepSkyBlue" 
+                               HorizontalOptions="Center">
+                            <Label.Shadow>
+                                <Shadow Brush="#3B82F6" Offset="2,2" Opacity="0.5"/>
+                            </Label.Shadow>
+                        </Label>
+                        <Label Text="Let's explore the latest innovations and discover great deals tailored just for you. Feel free to reach out if you need any assistance — we’re always happy to help!" FontSize="16" TextColor="White" 
+                               HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="20,0,20,0"/>
+
+                    </StackLayout>
+                </VerticalStackLayout>
             </Frame>
 
-            <Frame CornerRadius="12" Padding="10" BackgroundColor="White" HasShadow="True">
-                <Entry Placeholder="Email Address" Keyboard="Email" FontSize="16"/>
+
+            <Frame Margin="20,-180,20,0" Padding="20" HeightRequest="780" HasShadow="True" CornerRadius="30" BorderColor="Transparent"
+                   BackgroundColor="LightSkyBlue">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="LightSkyBlue" Offset="0.8"/>
+                        <GradientStop Color="SkyBlue" Offset="0.3"/>
+                        <GradientStop Color="White" Offset="0.0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <VerticalStackLayout Spacing="30" VerticalOptions="Start">
+                    <!-- Login Title -->
+                    <StackLayout Spacing="10" Margin="0,10,0,0">
+                        <Label Text="Create Your Account" FontSize="24" FontAttributes="Bold" TextColor="#2563EB" HorizontalOptions="Center"/>
+                        <Label Text="Access your personalized experience securely." 
+                               FontSize="14" TextColor="#64748B" HorizontalOptions="Center" 
+                               HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+
+                    <!-- Input Fields -->
+                    <VerticalStackLayout Spacing="15">
+                        <Frame Style="{StaticResource InputFrame}" Margin="0,20,0,0">
+                            <Frame.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#C0EBFE" Offset="0.0" />
+                                    <GradientStop Color="#29A7F5" Offset="0.5"/>
+                                    <GradientStop Color="#C0EBFE" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Frame.Background>
+
+                            <HorizontalStackLayout Spacing="15">
+                                <Image Source="user.png" WidthRequest="30" HeightRequest="30"/>
+                                <Entry Placeholder="Username" Style="{StaticResource InputEntry}" WidthRequest="350"/>
+                            </HorizontalStackLayout>
+                        </Frame>
+
+                        <Frame Style="{StaticResource InputFrame}" Margin="0,10,0,0">
+                            <Frame.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#C0EBFE" Offset="0.0" />
+                                    <GradientStop Color="#29A7F5" Offset="0.5"/>
+                                    <GradientStop Color="#C0EBFE" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Frame.Background>
+
+                            <HorizontalStackLayout Spacing="20" VerticalOptions="Center" HorizontalOptions="Center">
+                                <Image Source="padlock.png" WidthRequest="36" HeightRequest="36"/>
+                                <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" Style="{StaticResource InputEntry}" WidthRequest="350"/>
+                                <ImageButton x:Name="TogglePasswordButton" Source="eye_closed.png"
+                                             BackgroundColor="Transparent"
+                                             WidthRequest="24" HeightRequest="24"/>
+                            </HorizontalStackLayout>
+                        </Frame>
+
+                        <!-- Terms and Conditions -->
+                        <HorizontalStackLayout Spacing="5" Margin="0,0,0,20">
+                            <CheckBox Color="#3B82F6"/>
+                            <Label Text="I agree to the Terms and Conditions" VerticalOptions="Center" FontSize="14" TextColor="#64748B"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+
+                    <!-- Login Button -->
+                    <Button Text="SIGN UP"
+                            Style="{StaticResource PrimaryButton}"
+                            Command="{Binding SignInCommand}"/>
+
+                    <!-- Sign-up Link -->
+                    <Label HorizontalOptions="Center" Margin="0,15,0,0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Already have an account? " TextColor="#64748B" FontSize="16"/>
+                                <Span Text="Login" TextColor="#2563EB" FontAttributes="Bold" FontSize="18">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="20" HorizontalOptions="Center">
+                        <BoxView HeightRequest="1" WidthRequest="150" BackgroundColor="Gray" VerticalOptions="Center"/>
+                        <Label Text="or login using with" TextColor="#1D1D1E" Padding="10" FontSize="14"/>
+                        <BoxView HeightRequest="1" WidthRequest="150" BackgroundColor="Gray" VerticalOptions="Center"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20">
+                        <ImageButton Source="google.png" WidthRequest="55" HeightRequest="40" BackgroundColor="Transparent"/>
+                        <ImageButton Source="instagram.png" WidthRequest="55" HeightRequest="44" BackgroundColor="Transparent"/>
+                        <ImageButton Source="fb.png" WidthRequest="55" HeightRequest="44" BackgroundColor="Transparent"/>
+                    </StackLayout>
+                </VerticalStackLayout>
             </Frame>
-
-            <Frame CornerRadius="12" Padding="10" BackgroundColor="White" HasShadow="True">
-                <Entry Placeholder="Password" IsPassword="True" FontSize="16"/>
-            </Frame>
-
-            <Frame CornerRadius="12" Padding="10" BackgroundColor="White" HasShadow="True">
-                <Entry Placeholder="Confirm Password" IsPassword="True" FontSize="16"/>
-            </Frame>
-
-            <!-- Terms and Conditions -->
-            <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
-                <CheckBox />
-                <Label Text="I agree to the Terms and Conditions"
-                       VerticalOptions="Center"
-                       TextColor="#34495E"/>
-            </HorizontalStackLayout>
-
-            <!-- Sign-up Button -->
-            <Button Text="Sign Up"
-                    BackgroundColor="#2C3E50"
-                    TextColor="#FFFFFF"
-                    CornerRadius="12"
-                    HeightRequest="50"/>
-
-            <!-- Login Link -->
-            <HorizontalStackLayout HorizontalOptions="Center">
-                <Label Text="Already have an account?"
-                       TextColor="#777"/>
-                <Label Text=" Log In"
-                       TextColor="#2C3E50"
-                       FontAttributes="Bold">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding NavigateToLogin}" />
-                    </Label.GestureRecognizers>
-                </Label>
-            </HorizontalStackLayout>
-
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

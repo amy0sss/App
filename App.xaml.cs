@@ -8,7 +8,7 @@ namespace App
         {
             InitializeComponent();
 
-            MainPage = new Login();
+            MainPage = new NavigationPage(new Login());
         }
     }
 }
