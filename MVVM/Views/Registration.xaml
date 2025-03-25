@@ -144,7 +144,7 @@
                             <HorizontalStackLayout Spacing="20" VerticalOptions="Center" HorizontalOptions="Center">
                                 <Image Source="padlock.png" WidthRequest="36" HeightRequest="36"/>
                                 <Entry x:Name="ConfirmPasswordEntry" Placeholder="Confirm Password" IsPassword="True" Style="{StaticResource InputEntry}" WidthRequest="350"/>
-                                <ImageButton x:Name="TogglePasswordButton" Source="eye_closed.png"
+                                <ImageButton x:Name="ToggleConfirmPasswordButton" Source="eye_closed.png"
                                              BackgroundColor="Transparent"
                                              WidthRequest="24" HeightRequest="24"/>
                             </HorizontalStackLayout>

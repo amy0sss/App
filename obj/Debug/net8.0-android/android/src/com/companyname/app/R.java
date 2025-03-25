@@ -12341,10 +12341,10 @@ public final class R {
     public static final int toolbar=0x7f0b0071;
   }
   public static final class mipmap {
-    public static final int meow=0x7f0d0000;
-    public static final int meow_background=0x7f0d0001;
-    public static final int meow_foreground=0x7f0d0002;
-    public static final int meow_round=0x7f0d0003;
+    public static final int meow_background=0x7f0d0000;
+    public static final int meow_background_background=0x7f0d0001;
+    public static final int meow_background_foreground=0x7f0d0002;
+    public static final int meow_background_round=0x7f0d0003;
   }
   public static final class plurals {
     public static final int mtrl_badge_content_description=0x7f0e0000;

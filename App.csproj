@@ -40,7 +40,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\meow.png" ForegroundFile="Resources\AppIcon\meow_foreground.png" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\meow_background.png" ForegroundFile="Resources\AppIcon\meow_foreground.png" Color="#512BD4" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.jfif" Color="#512BD4" BaseSize="1080,1080" />
